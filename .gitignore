@@ -1,0 +1,19 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.ipynb_checkpoints/
+
+# VS Code and Jupyter-specific
+.vscode/
+.env
+*.env
+*.DS_Store
+
+# Do NOT ignore outputs (you want to keep all generated visual files)
+# outputs/ is fully tracked ✅
+
+# Optional: ignore system-specific files
+Thumbs.db
+ehthumbs.db

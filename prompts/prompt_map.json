@@ -1,0 +1,13 @@
+{
+  "show total sales by region": "result = df.groupby(\"Region\")[\"Sales\"].sum()\nprint(result)",
+
+  "show top 5 products by sales": "result = df.groupby(\"Product Name\")[\"Sales\"].sum().sort_values(ascending=False).head(5)\nprint(result)",
+
+  "plot total sales by category": "category_sales = df.groupby(\"Category\")[\"Sales\"].sum()\ncategory_sales.plot(kind=\"bar\", title=\"Total Sales by Category\", color=\"orchid\")\nplt.xlabel(\"Category\")\nplt.ylabel(\"Sales\")\nplt.tight_layout()\nplt.savefig(\"../outputs/plot_sales_by_category.png\", bbox_inches=\"tight\")\nplt.show()",
+
+  "plot sales vs sub-category": "df.groupby(\"Sub-Category\")[\"Sales\"].sum().plot(kind='barh', title='Sales by Sub-Category', color='violet')\nplt.xlabel('Sales')\nplt.tight_layout()\nplt.savefig(\"../outputs/plot_sales_by_subcategory.png\", bbox_inches=\"tight\")\nplt.show()",
+
+  "plot monthly sales trend": "df['Order Date'] = pd.to_datetime(df['Order Date'])\nmonthly_sales = df.groupby(df['Order Date'].dt.to_period('M'))['Sales'].sum()\nmonthly_sales.index = monthly_sales.index.to_timestamp()\nmonthly_sales.plot(title='Monthly Sales Trend', color='deeppink')\nplt.ylabel('Sales')\nplt.tight_layout()\nplt.savefig(\"../outputs/plot_monthly_sales_trend.png\", bbox_inches=\"tight\")\nplt.show()",
+
+  "plot sales distribution by ship mode": "mode_sales = df.groupby('Ship Mode')['Sales'].sum()\nmode_sales.plot.pie(autopct='%1.1f%%', startangle=90, title='Sales by Ship Mode')\nplt.ylabel('')\nplt.tight_layout()\nplt.savefig(\"../outputs/plot_sales_by_ship_mode.png\", bbox_inches=\"tight\")\nplt.show()"
+}
